@@ -27,7 +27,11 @@ public class ReqresSteps extends RestBase{
 	    setBaseURI(configs.getBaseURI(string));
 	    newRequest();
 	}
-
+	@Given("the user sets the endpoint to absolute {string}")
+	public void the_user_sets_the_endpoint_to_absolute(String string) {
+	    setBaseURI(string);
+	    newRequest();
+	}
 	@When("the user wants to get page {int}")
 	public void the_user_wants_to_get_page(Integer int1) {
 		setParam("page",int1);
@@ -40,7 +44,13 @@ public class ReqresSteps extends RestBase{
 		else
 			sendGet(configs.getEndpoint(path),id);
 	}
-
+	@When("the user makes a get request to absolute {string}")
+	public void the_user_makes_a_get_request_to_absolute(String path) {
+		if(id==-1)
+			sendGet(path);
+		else
+			sendGet(path,id);
+	}
 	@Then("the response should have status code {int}")
 	public void the_response_should_have_status_code(Integer code) {
 	    checkCode(code);
@@ -65,7 +75,11 @@ public class ReqresSteps extends RestBase{
 	{
 	    sendPost(configs.getEndpoint(path));
 	}
-	
+	@When("the user makes a post request to absolute {string}")
+	public void the_user_makes_a_post_request_to_absolute(String path)
+	{
+	    sendPost(path);
+	}
 	@Then("show the response")
 	public void show_the_response() {
 	    System.out.println(bodyAsString());

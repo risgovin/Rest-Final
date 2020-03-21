@@ -49,7 +49,7 @@ Feature: Json server dummy rest API
     And validate the response against the following data:
       | job | QA |
       
-Scenario: scenario made to fail 
-    When the user wants to get page 2
-    And the user makes a get request to "users"
-    Then the response should have status code 400
+#Scenario: scenario made to fail 
+#    When the user wants to get page 2
+#    And the user makes a get request to "users"
+#    Then the response should have status code 400

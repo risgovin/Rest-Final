@@ -1,11 +1,11 @@
 Feature: Reqres rest API
 
   Background: 
-    Given the user sets the endpoint to "https://reqres.in/api"
+    Given the user sets the endpoint to absolute "https://reqres.in/api"
 
   Scenario Outline: get a list of objects
     When the user wants to get page <page>
-    And the user makes a get request to "<location>"
+    And the user makes a get request to absolute "<location>"
     Then the response should have status code <code>
     And the response should contain "<field>" field as "<value>"
 
@@ -16,7 +16,7 @@ Feature: Reqres rest API
 
   Scenario Outline: get specific object
     When the user has an id of <id>
-    And the user makes a get request to "<location>"
+    And the user makes a get request to absolute "<location>"
     Then the response should have status code <code>
     And the response should contain "<field>" field as "<value>"
 
@@ -31,7 +31,7 @@ Feature: Reqres rest API
     When the user has the following data:
       | name | Rishabh |
       | job  | QA      |
-    And the user makes a post request to "/users"
+    And the user makes a post request to absolute "/users"
     Then the response should have status code 201
     And show the response
 
