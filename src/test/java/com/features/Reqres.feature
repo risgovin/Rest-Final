@@ -35,3 +35,10 @@ Feature: Reqres rest API
     Then the response should have status code 201
     And show the response
 
+  Scenario: made to fail
+    When the user has the following data:
+      | name | Rishabh |
+      | job  | QA      |
+    And the user makes a post request to absolute "/users"
+    Then the response should have status code 4000
+    And show the response
